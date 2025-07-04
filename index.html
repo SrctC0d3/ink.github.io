@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html>
 
+<script>
+  (function () {
+    const supportedLangs = ['es', 'en']; // Agrega más si los necesitas
+    const userLang = navigator.language || navigator.userLanguage;
+    const langCode = userLang.split('-')[0].toLowerCase();
+
+    // Evita redirigir si ya está en una ruta como /es o /en
+    if (
+      supportedLangs.includes(langCode) &&
+      !window.location.pathname.startsWith('/' + langCode)
+    ) {
+      window.location.replace('/' + langCode + '/');
+    }
+  })();
+</script>     
 
 <head>
 
